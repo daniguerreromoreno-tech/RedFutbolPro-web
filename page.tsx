@@ -17,16 +17,20 @@ export default function Home() {
   const [partidos, setPartidos] = useState<Partido[]>([]);
 
   useEffect(() => {
-    const q = query(
+    const partidosQuery = query(
       collection(db, "PartidosFinSemana"),
       where("UsuarioInformaID", "!=", "")
     );
 
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    const unsubscribe = onSnapshot(partidosQuery, (querySnapshot) => {
       const lista: Partido[] = [];
 
       querySnapshot.forEach((doc) => {
-        lista.push({ id: doc.id, ...(doc.data() as Omit<Partido, "id">) });
+        const data = doc.data() as Omit<Partido, "id">;
+        lista.push({
+          id: doc.id,
+          ...data,
+        });
       });
 
       setPartidos(lista);
@@ -37,17 +41,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      {/* HERO */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <img
           src="/logo.png"
-          alt="RedFutbolPro"
-          className="h-20 mb-6 rounded-xl"
+          alt="Logo de RedFutbolPro"
+          className="mb-6 h-20 rounded-xl"
         />
 
-        <h1 className="text-5xl font-black md:text-7xl">
-          RedFutbolPro
-        </h1>
+        <h1 className="text-5xl font-black md:text-7xl">RedFutbolPro</h1>
 
         <p className="mt-5 max-w-3xl text-xl text-slate-300">
           La red para conectar jugadores, entrenadores, clubes y staff del fútbol base y amateur.
@@ -57,7 +58,8 @@ export default function Home() {
           <a
             href="https://play.google.com/store/apps/details?id=com.mycompany.redfutbolpro"
             target="_blank"
-            className="rounded-xl bg-green-500 px-6 py-3 font-bold text-black hover:bg-green-400 transition"
+            rel="noopener noreferrer"
+            className="rounded-xl bg-green-500 px-6 py-3 font-bold text-black transition hover:bg-green-400"
           >
             Descargar en Google Play
           </a>
@@ -65,21 +67,21 @@ export default function Home() {
           <a
             href="https://apps.apple.com/es/app/redfutbolpro/id6760297476"
             target="_blank"
-            className="rounded-xl bg-white px-6 py-3 font-bold text-black hover:bg-slate-200 transition"
+            rel="noopener noreferrer"
+            className="rounded-xl bg-white px-6 py-3 font-bold text-black transition hover:bg-slate-200"
           >
             Descargar en App Store
           </a>
 
           <a
             href="#resultados"
-            className="rounded-xl border border-white/20 px-6 py-3 font-bold hover:bg-white/10 transition"
+            className="rounded-xl border border-white/20 px-6 py-3 font-bold transition hover:bg-white/10"
           >
             Ver resultados
           </a>
         </div>
       </section>
 
-      {/* RESULTADOS */}
       <section id="resultados" className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="text-4xl font-black">Resultados en directo</h2>
 
@@ -103,7 +105,7 @@ export default function Home() {
                 </p>
 
                 <h3 className="mt-2 text-lg font-bold">
-                  {p.EquipoA} vs {p.EquipoB}
+                  {p.EquipoA || "Equipo local"} vs {p.EquipoB || "Equipo visitante"}
                 </h3>
 
                 <p className="mt-3 text-3xl font-black">
@@ -115,7 +117,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-slate-400">
         © 2026 RedFutbolPro
       </footer>
