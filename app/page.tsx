@@ -123,14 +123,21 @@ export default function Home() {
             >
               Talento
             </a>
-            <a
-              href="#resultados"
-              className="rounded-xl bg-green-500 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-green-400"
-            >
-              Resultados
-            </a>
-          </div>
-        </div>
+           
+<a
+  href="#resultados"
+  className="rounded-xl border border-white/20 px-6 py-3 font-bold transition hover:bg-white/10"
+>
+  Ver resultados
+</a>
+
+<a
+  href="/manager/login"
+  className="flex items-center justify-center rounded-xl border border-emerald-400 bg-emerald-500/15 px-6 py-3 font-bold text-emerald-300 transition hover:bg-emerald-500/25"
+>
+  ⚽ Acceder a RedFutbolPro Manager
+</a>
+
       </header>
 
       <section className="relative overflow-hidden">
