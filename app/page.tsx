@@ -102,37 +102,37 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#050816] text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050816]/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-          <div className="flex items-center gap-3">
-            <img
-              src="/logo.png"
-              alt="RedFutbolPro"
-              className="h-11 w-11 rounded-xl object-cover"
-            />
-            <div>
-              <p className="text-lg font-black leading-none">RedFutbolPro</p>
-              <p className="text-xs text-slate-400">Fútbol base y amateur</p>
-            </div>
-          </div>
+    
+<header className="sticky top-0 z-50 border-b border-white/10 bg-[#050816]/90 backdrop-blur">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+    <div className="flex items-center gap-3">
+      <img
+        src="/logo.png"
+        alt="RedFutbolPro"
+        className="h-11 w-11 rounded-xl object-cover"
+      />
+      <div>
+        <p className="text-lg font-black leading-none">RedFutbolPro</p>
+        <p className="text-xs text-slate-400">Fútbol base y amateur</p>
+      </div>
+    </div>
 
-          <div className="flex gap-2">
-            <a
-              href="#talento"
-              className="rounded-xl border border-white/15 px-4 py-2 text-sm font-bold transition hover:bg-white/10"
-            >
-              Talento
-            </a>
-            <a
-              href="#resultados"
-              className="rounded-xl bg-green-500 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-green-400"
-            >
-              Resultados
-            </a>
-          </div>
-        </div>
-      </header>
-
+    <div className="flex gap-2">
+      <a
+        href="#talento"
+        className="rounded-xl border border-white/15 px-4 py-2 text-sm font-bold transition hover:bg-white/10"
+      >
+        Talento
+      </a>
+      <a
+        href="#resultados"
+        className="rounded-xl bg-green-500 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-green-400"
+      >
+        Resultados
+      </a>
+    </div>
+  </div>
+</header>
       <section className="relative overflow-hidden">
         <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-green-500/20 blur-3xl" />
 
@@ -166,12 +166,20 @@ export default function Home() {
               >
                 App Store
               </a>
-              <a
-                href="#resultados"
-                className="rounded-xl border border-white/20 px-6 py-3 font-bold transition hover:bg-white/10"
-              >
-                Ver resultados
-              </a>
+              
+<a
+  href="#resultados"
+  className="rounded-xl border border-white/20 px-6 py-3 font-bold transition hover:bg-white/10"
+>
+  Ver resultados
+</a>
+
+<a
+  href="/manager/login"
+  className="flex items-center justify-center rounded-xl border border-emerald-400 bg-emerald-500/15 px-6 py-3 font-bold text-emerald-300 transition hover:bg-emerald-500/25"
+>
+  ⚽ Acceder a RedFutbolPro Manager
+</a>
             </div>
 
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
