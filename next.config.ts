@@ -2,7 +2,7 @@
 import type { NextConfig } from "next";
 
 const managerUrl =
-  "https://redfutbolpro-manager-nsc6kpn4q-redfutbolpros-projects.vercel.app";
+  "https://redfutbolpro-manager.vercel.app";
 
 const nextConfig: NextConfig = {
   async rewrites() {
